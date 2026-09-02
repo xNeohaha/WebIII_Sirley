@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
-function CadastroCliente() {
+function CadastroFuncionarios() {
     const [nome, setNome] = useState('')
     const [cpf, setCpf] = useState('')
     const [telefone, setTelefone] = useState('')
     const [email, setEmail] = useState('')
+    const [cnpj, setCnpj] = useState('')
     function cadastrarCliente(evento) {
         evento.preventDefault()
         const novoCliente = {
@@ -13,14 +14,15 @@ function CadastroCliente() {
             cpf,
             telefone,
             email,
+            cnpj,
         }
         console.log(novoCliente)
-        alert('Cliente cadastrado com sucesso!')
+        alert('funcionarios cadastrado com sucesso!')
     }
     return (
         <main className="pagina">
 
-            <h1>Cadastrar novo cliente</h1>
+            <h1>Cadastrar novo funcionarios</h1>
             <form className="formulario"
                 onSubmit={cadastrarCliente}>
                 <label htmlFor="nome">Nome</label>
@@ -59,12 +61,21 @@ function CadastroCliente() {
                     onChange={(evento) =>
                         setEmail(evento.target.value)}
                 />
-                <button type="submit">Cadastrar cliente</button>
+
+                 <label htmlFor="email">CNPJ</label>
+                <input
+                    id="cnpj"
+                    type="text"
+                    value={cnpj}
+                    onChange={(evento) =>
+                        setCnpj(evento.target.value)}
+                />
+                <button type="submit">Cadastrar funcionarios</button>
             </form>
-            <Link to="/clientes">Voltar para Gerenciamento de
-                Clientes</Link>
+            <Link to="/Funcionarios">Voltar para Gerenciamento de
+                Funcionarios</Link>
 
         </main>
     )
 }
-export default CadastroCliente
+export default CadastroFuncionarios

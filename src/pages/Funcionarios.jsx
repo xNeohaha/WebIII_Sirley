@@ -1,15 +1,15 @@
 import { Link } from 'react-router'
-function Clientes() {
+function Funcionarios() {
     return (
         <div className="pagina">
-            <h1>Gerenciamento de Clientes</h1>
+            <h1>Gerenciamento de Funcionarios</h1>
             <p>Escolha uma das opções:</p>
             <div className="opcoes">
-                <Link to="/clientes/listar">
-                    Listar clientes
+                <Link to="/funcionarios/listar">
+                    Listar Funcionarios
                 </Link>
-                <Link to="/clientes/cadastrar">
-                    Cadastrar novo cliente
+                <Link to="/funcionarios/cadastrar">
+                    Cadastrar novo funcionario
                 </Link>
             </div>
             <Link to="/">
@@ -18,4 +18,4 @@ function Clientes() {
         </div>
     )
 }
-export default Clientes
+export default Funcionarios
