@@ -5,10 +5,11 @@ import Cabecalho from './components/Cabecalho'
 import CardModulo from './components/CardModulo'
 import Clientes from './pages/Clientes'
 import ListaClientes from './pages/ListaClientes'
+import CadastroCliente from './pages/CadastroCliente'
 function App() {
   const [mostrarModulos, setMostrarModulos] =
     useState(true)
-  const [modulos, setModulos] = useState([
+  const [modulos] = useState([
     {
       id: 1,
       titulo: 'Gerenciamento de Produtos',
@@ -75,6 +76,11 @@ function App() {
         path="/clientes/listar"
         element={<ListaClientes />}
       />
+      <Route
+        path="/clientes/cadastrar"
+        element={<CadastroCliente />}
+      />
+
     </Routes>
 
   )
