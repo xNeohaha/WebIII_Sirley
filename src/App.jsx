@@ -1,17 +1,25 @@
+import { useState } from 'react'
+import { Routes, Route } from 'react-router'
 import './App.css'
 import Cabecalho from './components/Cabecalho'
 import CardModulo from './components/CardModulo'
+import Clientes from './pages/Clientes'
+import ListaClientes from './pages/ListaClientes'
 function App() {
-  const modulos = [
+  const [mostrarModulos, setMostrarModulos] =
+    useState(true)
+  const [modulos, setModulos] = useState([
     {
       id: 1,
       titulo: 'Gerenciamento de Produtos',
-      descricao: 'Cadastre e consulte os produtos disponíveis.',
+      descricao: 'Cadastre e consulte os produtosdisponíveis.',
     },
     {
       id: 2,
       titulo: 'Gerenciamento de Clientes',
       descricao: 'Cadastre e consulte os clientes da empresa.',
+      rota: '/clientes',
+
     },
     {
       id: 3,
@@ -23,28 +31,52 @@ function App() {
       titulo: 'Gerenciamento de Vendas',
       descricao: 'Registre e consulte as vendas realizadas.',
     },
-
-  ]
+  ])
   return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="aplicacao">
+            <Cabecalho />
+            <main className="conteudo-principal">
+              <p className="introducao">
+                Aplicação desenvolvida nas disciplinas de
+                Desenvolvimento Web
+                III e Tópicos de Programação II.
+              </p>
+              <button
+                type="button"
+                className="botao-alternar"
+                onClick={() => setMostrarModulos(!
+                  mostrarModulos)}
+              >
+                {mostrarModulos ? 'Ocultar módulos' :
+                  'Exibir módulos'}
+              </button>
+              {mostrarModulos && (
+                <section className="modulos">
+                  {modulos.map((modulo) => (
+                    <CardModulo
+                      key={modulo.id}
+                      titulo={modulo.titulo}
+                      descricao={modulo.descricao}
+                      rota={modulo.rota}
+                    />
+                  ))}
+                </section>
+              )}
+            </main>
+          </div>
+        }
+      />
+      <Route path="/clientes" element={<Clientes />} />
+      <Route
+        path="/clientes/listar"
+        element={<ListaClientes />}
+      />
+    </Routes>
 
-    <div className="aplicacao">
-      <Cabecalho />
-      <main className="conteudo-principal">
-        <p className="introducao">
-          Aplicação desenvolvida nas disciplinas de Desenvolvimento Web III e
-          Tópicos de Programação II.
-        </p>
-        <section className="modulos">
-          {modulos.map((modulo) => (
-            <CardModulo
-              key={modulo.id}
-              titulo={modulo.titulo}
-              descricao={modulo.descricao}
-            />
-          ))}
-        </section>
-      </main>
-    </div>
   )
 }
 export default App
