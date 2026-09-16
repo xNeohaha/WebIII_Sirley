@@ -260,6 +260,27 @@ acao {
 }
 
 /* Responsividade das páginas de clientes */
+
+.mensagem-erro {
+    color: #dc2626;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.formulario input.campo-invalido {
+    border-color: #dc2626;
+    outline-color: #fecaca;
+}
+
+.mensagem-sucesso {
+    padding: 12px 16px;
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .pagina {
         margin: 20px;
@@ -270,4 +291,43 @@ acao {
         grid-template-columns: 1fr;
     }
 
+}
+
+.acoes-cliente {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.botao-alterar,
+.botao-excluir {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.botao-alterar {
+    background-color: #f59e0b;
+}
+
+.botao-alterar:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.botao-excluir {
+    background-color: #dc2626;
+}
+
+.botao-excluir:hover {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
 }
